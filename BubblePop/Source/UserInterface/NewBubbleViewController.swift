@@ -13,6 +13,7 @@ protocol NewBubbleViewControllerDelegate: class {
 
 class NewBubbleViewController: UIViewController {
 
+    @IBOutlet private var titleLabel: UILabel?
     @IBOutlet private var titleBubbleView: AppView?
     @IBOutlet private var titleTextField: UITextField?
     @IBOutlet private var descriptionBubbleView: AppView?
@@ -26,70 +27,105 @@ class NewBubbleViewController: UIViewController {
     @IBOutlet private var sliderBubbleView: AppView?
     @IBOutlet private var slider: UISlider?
     @IBOutlet private var dismissButton: AppButton?
-    
-    private var selectedColor: UIColor = .systemPurple
-    private var currentPriority: Double = 0.5
+    @IBOutlet private var backButton: AppButton?
     
     weak var delegate: NewBubbleViewControllerDelegate?
     
+    var bubble: Bubble = Bubble()
+    private var state: State {
+        return bubble.createdAt != nil ? .edit : .new
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(closeKeyboard)))
         descriptionTextView?.textContainer.maximumNumberOfLines = 0
         descriptionTextView?.textContainer.lineBreakMode = .byTruncatingTail
-        purpleButton?.shadowColor = .clear
-        refreshUI()
+        reload()
     }
     
     @objc private func closeKeyboard() {
         self.view.endEditing(true)
     }
     
-    @IBAction private func dismissController(_ sender: Any) {
-        dismissController()
+    @IBAction private func goBack(_ sender: Any) {
+        closeController()
     }
+    
+    @IBAction private func dismissController(_ sender: Any) {
+        closeController()
+    }
+    
     @IBAction private func create(_ sender: Any) {
         guard titleTextField?.text?.isEmpty == false else { return }
-        let bubble = Bubble()
-        bubble.color = selectedColor
         bubble.title = titleTextField?.text
         bubble.description = descriptionTextView?.text
-        bubble.scale = currentPriority
-        bubble.createdAt = Date()
         bubble.saveToDatabase {
             self.delegate?.newBubbleViewControllerDidAddNewItem(self)
-            self.dismissController()
+            self.closeController()
         }
     }
+    
     @IBAction private func colorButtonPressed(_ sender: AppButton) {
-        [purpleButton, redButton, blueButton, greenButton, yellowButton].forEach { $0?.shadowColor = .black }
-        sender.shadowColor = .clear
         if let selectedColor = sender.backgroundColor {
-            self.selectedColor = selectedColor
+            bubble.color = selectedColor
+            refreshUI()
         }
-        refreshUI()
     }
     
     
     @IBAction private func descriptionTextFViewSelected(_ sender: Any) {
-        
         descriptionTextView?.becomeFirstResponder()
     }
     
     @IBAction private func sliderValueChanged(_ sender: UISlider) {
-        currentPriority = Double(sender.value)
+        bubble.scale = Double(sender.value)
     }
     
-    private func dismissController() {
-        self.dismiss(animated: true, completion: nil)
+    private func closeController() {
+        switch state {
+        case .new: dismiss(animated: true, completion: nil)
+        case .edit: navigationController?.popViewController(animated: true)
+        }
+        
     }
     
     private func refreshUI() {
-        slider?.minimumTrackTintColor = selectedColor
-        descriptionBubbleView?.backgroundColor = selectedColor
-        titleBubbleView?.backgroundColor = selectedColor
-        createButton?.backgroundColor = selectedColor
-        dismissButton?.backgroundColor = selectedColor
+        slider?.minimumTrackTintColor = bubble.color
+        descriptionBubbleView?.backgroundColor = bubble.color
+        titleBubbleView?.backgroundColor = bubble.color
+        createButton?.backgroundColor = bubble.color
+        dismissButton?.backgroundColor = bubble.color
+        backButton?.backgroundColor = bubble.color
+        [purpleButton, redButton, blueButton, greenButton, yellowButton].forEach { button in
+            button?.shadowColor = button?.backgroundColor == bubble.color ? .clear : .black
+        }
+    }
+    
+    private func reload() {
+        titleTextField?.text = bubble.title
+        descriptionTextView?.text = bubble.description
+        slider?.value = Float(bubble.scale)
+        switch state {
+        case .new:
+            createButton?.setTitle("Create", for: .normal)
+            dismissButton?.isHidden = false
+            backButton?.isHidden = true
+            titleLabel?.text = "NEW BUBBLE"
+        case .edit:
+            createButton?.setTitle("Confirm", for: .normal)
+            dismissButton?.isHidden = true
+            backButton?.isHidden = false
+            titleLabel?.text = "EDIT BUBBLE"
+        }
+        refreshUI()
+    }
+}
+
+private extension NewBubbleViewController {
+    enum State {
+        case new
+        case edit
     }
 }

@@ -26,7 +26,11 @@ class BubbleDetailsViewController: UIViewController {
     }
     
     @IBAction private func popBubble(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        guard let bubble = bubble else { return }
+        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "NewBubbleViewController") as! NewBubbleViewController
+        controller.bubble = bubble
+        navigationController?.pushViewController(controller, animated: true)
+
     }
     
     @objc func dismissController() {

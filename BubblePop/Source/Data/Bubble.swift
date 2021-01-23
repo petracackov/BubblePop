@@ -33,7 +33,7 @@ class Bubble: DatabaseEntity {
         entity.details = self.description
         entity.color = convertToRGBAComponents(from: self.color)
         entity.size = self.scale
-        entity.createdAt = self.createdAt
+        entity.createdAt = self.createdAt ?? Date()
         entity.poppedAt = self.poppedAt
     }
     

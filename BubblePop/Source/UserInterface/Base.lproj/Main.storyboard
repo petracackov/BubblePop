@@ -127,7 +127,6 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="create:" destination="Qjg-bK-m2X" eventType="touchUpInside" id="Kzt-GR-qtq"/>
                                                     <action selector="dismissController:" destination="Qjg-bK-m2X" eventType="touchUpInside" id="AjX-rD-ZWL"/>
                                                 </connections>
                                             </button>
@@ -137,10 +136,46 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AbT-xT-RCA" customClass="AppButton" customModule="BubblePop" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="AbT-xT-RCA" secondAttribute="height" id="Keu-AE-m5I"/>
+                                                    <constraint firstAttribute="height" constant="40" id="NSH-Ux-PZE"/>
+                                                </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" image="chevron.backward" catalog="system">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="fullyRounded" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowWidth">
+                                                        <real key="value" value="0.5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowHeight">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="goBack:" destination="Qjg-bK-m2X" eventType="touchUpInside" id="gfM-6e-8Zk"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="AbT-xT-RCA" firstAttribute="top" secondItem="Enr-H0-TG0" secondAttribute="top" id="30O-HU-gOp"/>
                                             <constraint firstItem="per-pe-cqW" firstAttribute="centerY" secondItem="Enr-H0-TG0" secondAttribute="centerY" id="4gK-iF-NZJ"/>
+                                            <constraint firstItem="AbT-xT-RCA" firstAttribute="leading" secondItem="Enr-H0-TG0" secondAttribute="leading" id="Lkr-RH-MqV"/>
+                                            <constraint firstAttribute="bottom" secondItem="AbT-xT-RCA" secondAttribute="bottom" id="dcc-vO-t5C"/>
                                             <constraint firstItem="per-pe-cqW" firstAttribute="centerX" secondItem="Enr-H0-TG0" secondAttribute="centerX" id="h9a-PQ-SUw"/>
                                             <constraint firstItem="tsH-R0-SOv" firstAttribute="top" secondItem="Enr-H0-TG0" secondAttribute="top" id="k1J-E7-GOU"/>
                                             <constraint firstAttribute="bottom" secondItem="tsH-R0-SOv" secondAttribute="bottom" id="p65-5w-Jx7"/>
@@ -516,6 +551,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="AbT-xT-RCA" id="UQN-4C-cCZ"/>
                         <outlet property="blueButton" destination="6vM-ef-AD5" id="hTT-jt-kPE"/>
                         <outlet property="createButton" destination="gw2-Ri-XND" id="4Ub-ci-TAS"/>
                         <outlet property="descriptionBubbleView" destination="uhs-X0-Wry" id="cWF-2m-esI"/>
@@ -527,6 +563,7 @@
                         <outlet property="slider" destination="f9m-7W-3Ij" id="zg1-n1-74R"/>
                         <outlet property="sliderBubbleView" destination="TjV-HO-Kp5" id="Xo3-Pg-C5c"/>
                         <outlet property="titleBubbleView" destination="wUR-N7-5sK" id="Pja-db-kxE"/>
+                        <outlet property="titleLabel" destination="per-pe-cqW" id="iAJ-wH-ly1"/>
                         <outlet property="titleTextField" destination="QDl-61-z31" id="4Sh-He-PgS"/>
                         <outlet property="yellowButton" destination="U9o-8s-chi" id="fqU-NF-YQi"/>
                     </connections>
@@ -657,6 +694,9 @@
         <designable name="6vM-ef-AD5">
             <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
+        <designable name="AbT-xT-RCA">
+            <size key="intrinsicContentSize" width="12.666666666666666" height="22"/>
+        </designable>
         <designable name="P5L-Av-7Bz">
             <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
@@ -680,6 +720,7 @@
         </designable>
     </designables>
     <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

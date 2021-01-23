@@ -57,9 +57,11 @@ extension ViewController: BubblesSceneDelegate {
     func bubblesScene(_ sender: BubblesScene, didSelect bubble: Bubble) {
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "BubbleDetailsViewController") as! BubbleDetailsViewController
         controller.bubble = bubble
-        controller.modalPresentationStyle = .overFullScreen
-        controller.modalTransitionStyle = .crossDissolve
-        present(controller, animated: true, completion: nil)
+        let navigationController = UINavigationController(rootViewController: controller)
+        navigationController.modalPresentationStyle = .overFullScreen
+        navigationController.modalTransitionStyle = .crossDissolve
+        navigationController.isNavigationBarHidden = true
+        present(navigationController, animated: true, completion: nil)
     }
     
     func bubblesScene(_ sender: BubblesScene, didRemove bubble: Bubble) {
