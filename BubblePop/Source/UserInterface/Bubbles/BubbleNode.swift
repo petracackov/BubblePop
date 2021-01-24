@@ -7,16 +7,25 @@
 
 import SpriteKit
 
-
-
 class BubbleNode: SKShapeNode {
 
     private var bubbleTitleLabel: SKLabelNode?
-    private(set) var bubble: Bubble?
+    private(set) var bubble: Bubble? {
+        didSet { reload() }
+    }
     
     init(bubble: Bubble) {
         super.init()
         self.bubble = bubble
+        reload()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func reload() {
+        guard let bubble = bubble else { return }
         let size: CGFloat = CGFloat(100 + bubble.scale*100)
         let path = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: size, height: size)).cgPath
         self.path = path
@@ -38,11 +47,6 @@ class BubbleNode: SKShapeNode {
             return label
         }()
         adjustFontToFitTheFrame()
-        
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     private func adjustFontToFitTheFrame() {
@@ -68,6 +72,10 @@ class BubbleNode: SKShapeNode {
     func removeBubbleFromScene(animated: Bool = false) {
         self.removeFromParent()
         UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
+    }
+    
+    func replaceBubble(with bubble: Bubble) {
+        self.bubble = bubble
     }
 }
 

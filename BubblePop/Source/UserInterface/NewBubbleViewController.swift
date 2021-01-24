@@ -8,7 +8,8 @@
 import UIKit
 
 protocol NewBubbleViewControllerDelegate: class {
-    func newBubbleViewControllerDidAddNewItem(_ sender: NewBubbleViewController)
+    func newBubbleViewController(_ sender: NewBubbleViewController, didAddNewBubble bubble: Bubble)
+    func newBubbleViewController(_ sender: NewBubbleViewController, didChangeBubble bubble: Bubble)
 }
 
 class NewBubbleViewController: UIViewController {
@@ -62,7 +63,10 @@ class NewBubbleViewController: UIViewController {
         bubble.title = titleTextField?.text
         bubble.description = descriptionTextView?.text
         bubble.saveToDatabase {
-            self.delegate?.newBubbleViewControllerDidAddNewItem(self)
+            switch self.state {
+            case .new: self.delegate?.newBubbleViewController(self, didAddNewBubble: self.bubble)
+            case .edit: self.delegate?.newBubbleViewController(self, didChangeBubble: self.bubble)
+            }
             self.closeController()
         }
     }

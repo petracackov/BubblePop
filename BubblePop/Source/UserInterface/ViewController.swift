@@ -39,17 +39,22 @@ class ViewController: UIViewController {
     private func addAllBubbles() {
         // TODO: remove all bubbles
         data?.forEach { bubble in
-            bubblesView?.addBubble(bubble)
+            self.bubblesView?.addBubble(bubble)
         }
-        
     }
     
 }
 
 extension ViewController: NewBubbleViewControllerDelegate {
-    func newBubbleViewControllerDidAddNewItem(_ sender: NewBubbleViewController) {
-        reloadData()
+    func newBubbleViewController(_ sender: NewBubbleViewController, didAddNewBubble bubble: Bubble) {
+        data?.append(bubble)
+        bubblesView?.addBubble(bubble, inMiddle: true)
     }
+    
+    func newBubbleViewController(_ sender: NewBubbleViewController, didChangeBubble bubble: Bubble) {
+        bubblesView?.updateBubble(bubble)
+    }
+    
     
 }
 
@@ -57,6 +62,7 @@ extension ViewController: BubblesSceneDelegate {
     func bubblesScene(_ sender: BubblesScene, didSelect bubble: Bubble) {
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "BubbleDetailsViewController") as! BubbleDetailsViewController
         controller.bubble = bubble
+        controller.bubbleDelegate = self
         let navigationController = UINavigationController(rootViewController: controller)
         navigationController.modalPresentationStyle = .overFullScreen
         navigationController.modalTransitionStyle = .crossDissolve

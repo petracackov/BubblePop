@@ -17,6 +17,8 @@ class BubbleDetailsViewController: UIViewController {
     
     var bubble: Bubble? 
     
+    weak var bubbleDelegate: NewBubbleViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,6 +31,7 @@ class BubbleDetailsViewController: UIViewController {
         guard let bubble = bubble else { return }
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "NewBubbleViewController") as! NewBubbleViewController
         controller.bubble = bubble
+        controller.delegate = bubbleDelegate
         navigationController?.pushViewController(controller, animated: true)
 
     }

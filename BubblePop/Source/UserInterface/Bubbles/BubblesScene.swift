@@ -29,7 +29,7 @@ class BubblesScene: SKScene {
     }
     
     weak var bubblesSceneDelegate: BubblesSceneDelegate?
-        
+    
     override init(size: CGSize) {
         super.init(size: size)
         addGravity()
@@ -96,7 +96,7 @@ extension BubblesScene {
         let previous = touch.previousLocation(in: self)
         let delta = CalculationTools.delta(lhs: location, rgh: previous)
         if CalculationTools.distance(from: previous, to: location) > 0.0 {
-            // TODO: add some e break so user can't scroll to infinite
+            // TODO: add some break so user can't scroll to infinite
             touchEventInProgress = false
             draggingInProgress = true
             for node in children {
