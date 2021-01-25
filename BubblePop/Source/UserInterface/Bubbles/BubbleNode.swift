@@ -33,6 +33,7 @@ class BubbleNode: SKShapeNode {
         self.lineWidth = 0
         updatePhysicsBody(path: path)
         
+        bubbleTitleLabel?.removeFromParent()
         bubbleTitleLabel = {
             let label = SKLabelNode(text: bubble.title)
             label.horizontalAlignmentMode = .center
@@ -53,7 +54,7 @@ class BubbleNode: SKShapeNode {
         guard let bubbleTitleLabel = bubbleTitleLabel else { return }
         let scalingFactor = min(frame.width / bubbleTitleLabel.frame.width, frame.height / bubbleTitleLabel.frame.height, 1)
         bubbleTitleLabel.fontSize *= scalingFactor
-        bubbleTitleLabel.position = CGPoint(x: frame.midX, y: frame.midY)
+        bubbleTitleLabel.position = CGPoint(x: frame.size.width/2, y: frame.size.height/2)
     }
     
     private func updatePhysicsBody(path: CGPath) {
