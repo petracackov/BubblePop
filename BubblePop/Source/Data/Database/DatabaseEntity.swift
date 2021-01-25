@@ -9,7 +9,7 @@ import UIKit
 
 class DatabaseEntity {
 
-    var id: UUID?
+    var id: UUID? = UUID()
     
     private static var entityName: String {
         let name = (String(describing: self) + "Entity")

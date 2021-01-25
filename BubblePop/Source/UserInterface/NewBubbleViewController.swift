@@ -33,9 +33,7 @@ class NewBubbleViewController: UIViewController {
     weak var delegate: NewBubbleViewControllerDelegate?
     
     var bubble: Bubble = Bubble()
-    private var state: State {
-        return bubble.createdAt != nil ? .edit : .new
-    }
+    private var state: State = .new
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +41,7 @@ class NewBubbleViewController: UIViewController {
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(closeKeyboard)))
         descriptionTextView?.textContainer.maximumNumberOfLines = 0
         descriptionTextView?.textContainer.lineBreakMode = .byTruncatingTail
+        state = bubble.createdAt != nil ? .edit : .new
         reload()
     }
     

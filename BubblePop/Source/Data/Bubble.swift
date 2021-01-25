@@ -29,12 +29,15 @@ class Bubble: DatabaseEntity {
     override func c_writeDataToEntity() {
         super.c_writeDataToEntity()
         guard let entity = entity as? BubbleEntity else { return }
+        if self.createdAt == nil {
+            self.createdAt = Date()
+        }
         entity.title = self.title
         entity.details = self.description
         entity.color = convertToRGBAComponents(from: self.color)
         entity.size = self.scale
-        entity.createdAt = self.createdAt ?? Date()
         entity.poppedAt = self.poppedAt
+        entity.createdAt = self.createdAt
     }
     
     private func convertToColor(from rgba: [Double]?) -> UIColor {
