@@ -115,7 +115,6 @@ extension BubblesScene {
     
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // TODO: detect tap
         if touchEventInProgress, draggingInProgress == false, let currentBubble = currentBubbleSelected?.bubble {
             print("touch detected")
             bubblesSceneDelegate?.bubblesScene(self, didSelect: currentBubble)
