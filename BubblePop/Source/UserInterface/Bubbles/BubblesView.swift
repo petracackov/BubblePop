@@ -55,4 +55,8 @@ class BubblesView: SKView {
         currentBubbleNodes.first { $0.bubble?.id == bubble.id }?.replaceBubble(with: bubble)
     }
     
+    func removeBubble(_ bubble: Bubble) {
+        currentBubbleNodes.first { $0.bubble?.id == bubble.id }?.removeBubbleFromScene()
+    }
+    
 }

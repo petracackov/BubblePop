@@ -27,6 +27,12 @@ class BubbleDetailsViewController: UIViewController {
         refresh()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // If user edited the bubble data it should refresh when coming back from edit screen
+        refresh()
+    }
+    
     @IBAction private func popBubble(_ sender: Any) {
         guard let bubble = bubble else { return }
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "NewBubbleViewController") as! NewBubbleViewController

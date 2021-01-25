@@ -23,6 +23,7 @@ class DatabaseEntity {
     
     private(set) var entity: BaseEntity?
     
+    /// must be called from context thread
     required convenience init(entity: BaseEntity) {
         self.init()
         self.entity = entity
@@ -35,6 +36,7 @@ class DatabaseEntity {
             self.id = entity.id
         }
     }
+    
     /// must be called from context thread
     func c_writeDataToEntity() {
         if entity == nil {

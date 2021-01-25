@@ -32,13 +32,13 @@ class ViewController: UIViewController {
     private func reloadData() {
         Bubble.fetchAllObjects { (objects, error) in
             self.data = objects as? [Bubble]
-            self.addAllBubbles()
+            self.refreshBubbles()
         }
     }
     
-    private func addAllBubbles() {
-        // TODO: remove all bubbles
+    private func refreshBubbles() {
         data?.forEach { bubble in
+            self.bubblesView?.removeBubble(bubble)
             self.bubblesView?.addBubble(bubble)
         }
     }
