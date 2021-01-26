@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -183,7 +184,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wUR-N7-5sK" customClass="AppView" customModule="BubblePop" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="93" width="374" height="94"/>
+                                        <rect key="frame" x="0.0" y="92.666666666666657" width="374" height="94"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bubble Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QDl-61-z31">
                                                 <rect key="frame" x="30" y="30" width="314" height="34"/>
@@ -206,212 +207,76 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="fullyRounded" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="PE8-bL-mLn">
-                                        <rect key="frame" x="0.0" y="239.66666666666666" width="374" height="59.666666666666657"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hgL-qE-3z0">
-                                                <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="59.666666666666664"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P5L-Av-7Bz" customClass="AppButton" customModule="BubblePop" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="59.666666666666664"/>
-                                                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="P5L-Av-7Bz" secondAttribute="height" id="bSV-Tl-rH0"/>
-                                                        </constraints>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="fullyRounded" value="YES"/>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowWidth">
-                                                                <real key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowHeight">
-                                                                <real key="value" value="2"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                                <real key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                                <real key="value" value="0.0"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="colorButtonPressed:" destination="Qjg-bK-m2X" eventType="touchUpInside" id="XqL-T4-88O"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="P5L-Av-7Bz" secondAttribute="trailing" id="5So-3t-dDz"/>
-                                                    <constraint firstItem="P5L-Av-7Bz" firstAttribute="top" secondItem="hgL-qE-3z0" secondAttribute="top" id="Eep-pP-9Fu"/>
-                                                    <constraint firstItem="P5L-Av-7Bz" firstAttribute="leading" secondItem="hgL-qE-3z0" secondAttribute="leading" id="iL7-aV-wjI"/>
-                                                    <constraint firstAttribute="bottom" secondItem="P5L-Av-7Bz" secondAttribute="bottom" id="x0Z-j4-ibR"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SrU-ev-B8U">
-                                                <rect key="frame" x="78.666666666666671" y="0.0" width="59.666666666666671" height="59.666666666666664"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yk-fd-Ydg" customClass="AppButton" customModule="BubblePop" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="59.666666666666664"/>
-                                                        <color key="backgroundColor" systemColor="systemPinkColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="4yk-fd-Ydg" secondAttribute="height" id="aVj-mh-Rjz"/>
-                                                        </constraints>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="fullyRounded" value="YES"/>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowWidth">
-                                                                <real key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowHeight">
-                                                                <real key="value" value="2"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                                <real key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                                <real key="value" value="0.0"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="colorButtonPressed:" destination="Qjg-bK-m2X" eventType="touchUpInside" id="JCN-Nc-79e"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="4yk-fd-Ydg" secondAttribute="bottom" id="JGl-yb-9pe"/>
-                                                    <constraint firstAttribute="trailing" secondItem="4yk-fd-Ydg" secondAttribute="trailing" id="Ke3-8G-meo"/>
-                                                    <constraint firstItem="4yk-fd-Ydg" firstAttribute="top" secondItem="SrU-ev-B8U" secondAttribute="top" id="ibK-ee-dPP"/>
-                                                    <constraint firstItem="4yk-fd-Ydg" firstAttribute="leading" secondItem="SrU-ev-B8U" secondAttribute="leading" id="kEq-n1-FlI"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mju-Ub-Gut">
-                                                <rect key="frame" x="157.33333333333334" y="0.0" width="59.333333333333343" height="59.666666666666664"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vM-ef-AD5" customClass="AppButton" customModule="BubblePop" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="59.333333333333336" height="59.666666666666664"/>
-                                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="6vM-ef-AD5" secondAttribute="height" id="03O-Ub-j3q"/>
-                                                        </constraints>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="fullyRounded" value="YES"/>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowWidth">
-                                                                <real key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowHeight">
-                                                                <real key="value" value="2"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                                <real key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                                <real key="value" value="0.0"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="colorButtonPressed:" destination="Qjg-bK-m2X" eventType="touchUpInside" id="YlD-tg-xEg"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstItem="6vM-ef-AD5" firstAttribute="leading" secondItem="Mju-Ub-Gut" secondAttribute="leading" id="2bz-iw-qUh"/>
-                                                    <constraint firstItem="6vM-ef-AD5" firstAttribute="top" secondItem="Mju-Ub-Gut" secondAttribute="top" id="7Su-ol-ZCe"/>
-                                                    <constraint firstAttribute="trailing" secondItem="6vM-ef-AD5" secondAttribute="trailing" id="TGb-2i-QVu"/>
-                                                    <constraint firstAttribute="bottom" secondItem="6vM-ef-AD5" secondAttribute="bottom" id="amz-Pj-54a"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yrf-Ux-pDA">
-                                                <rect key="frame" x="235.66666666666666" y="0.0" width="59.666666666666657" height="59.666666666666664"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihz-X7-VVk" customClass="AppButton" customModule="BubblePop" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="59.666666666666664"/>
-                                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="ihz-X7-VVk" secondAttribute="height" id="5dL-1Z-sZM"/>
-                                                        </constraints>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="fullyRounded" value="YES"/>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowWidth">
-                                                                <real key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowHeight">
-                                                                <real key="value" value="2"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                                <real key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                                <real key="value" value="0.0"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="colorButtonPressed:" destination="Qjg-bK-m2X" eventType="touchUpInside" id="8f3-ev-YXd"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstItem="ihz-X7-VVk" firstAttribute="leading" secondItem="Yrf-Ux-pDA" secondAttribute="leading" id="GVq-yR-u61"/>
-                                                    <constraint firstItem="ihz-X7-VVk" firstAttribute="top" secondItem="Yrf-Ux-pDA" secondAttribute="top" id="Y0T-Uc-Uyo"/>
-                                                    <constraint firstAttribute="bottom" secondItem="ihz-X7-VVk" secondAttribute="bottom" id="d5d-34-AmA"/>
-                                                    <constraint firstAttribute="trailing" secondItem="ihz-X7-VVk" secondAttribute="trailing" id="rdS-FG-c4V"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cSw-H8-h2n">
-                                                <rect key="frame" x="314.33333333333331" y="0.0" width="59.666666666666686" height="59.666666666666664"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9o-8s-chi" customClass="AppButton" customModule="BubblePop" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="59.666666666666664" height="59.666666666666664"/>
-                                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="U9o-8s-chi" secondAttribute="height" id="mx6-uQ-TLM"/>
-                                                        </constraints>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="fullyRounded" value="YES"/>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowWidth">
-                                                                <real key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowHeight">
-                                                                <real key="value" value="2"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                                <real key="value" value="1"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                                <real key="value" value="0.0"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="colorButtonPressed:" destination="Qjg-bK-m2X" eventType="touchUpInside" id="fS7-61-34D"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="U9o-8s-chi" secondAttribute="trailing" id="3cp-wk-pcN"/>
-                                                    <constraint firstItem="U9o-8s-chi" firstAttribute="leading" secondItem="cSw-H8-h2n" secondAttribute="leading" id="GMI-VQ-s6y"/>
-                                                    <constraint firstAttribute="bottom" secondItem="U9o-8s-chi" secondAttribute="bottom" id="Mdd-uY-Xc6"/>
-                                                    <constraint firstItem="U9o-8s-chi" firstAttribute="top" secondItem="cSw-H8-h2n" secondAttribute="top" id="dXH-JP-hog"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
+                                    <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="klH-Ft-6XG">
+                                        <rect key="frame" x="0.0" y="239.66666666666669" width="374" height="60"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </stackView>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="MKp-rp-pvQ"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GjN-Pn-3x7">
+                                            <size key="itemSize" width="60" height="60"/>
+                                            <size key="estimatedItemSize" width="60" height="60"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ColorCollectionViewCell" id="Xcq-HQ-6cN" customClass="ColorCollectionViewCell" customModule="BubblePop" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7Zt-c6-oLJ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rig-du-8bG" customClass="AppButton" customModule="BubblePop" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                            <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="60" id="btD-wt-CPx"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="fullyRounded" value="YES"/>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                                    <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowWidth">
+                                                                    <real key="value" value="1"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowHeight">
+                                                                    <real key="value" value="2"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                    <real key="value" value="1"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                                    <real key="value" value="0.0"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="didSelectColor:" destination="Xcq-HQ-6cN" eventType="touchUpInside" id="DAI-PE-UBh"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="rig-du-8bG" secondAttribute="trailing" id="AdH-Hn-YgQ"/>
+                                                        <constraint firstItem="rig-du-8bG" firstAttribute="leading" secondItem="7Zt-c6-oLJ" secondAttribute="leading" id="GLg-2M-ZhQ"/>
+                                                        <constraint firstItem="rig-du-8bG" firstAttribute="width" secondItem="rig-du-8bG" secondAttribute="height" id="KF9-5u-Xwi"/>
+                                                        <constraint firstItem="rig-du-8bG" firstAttribute="top" secondItem="7Zt-c6-oLJ" secondAttribute="top" id="Zud-f8-x4f"/>
+                                                        <constraint firstAttribute="bottom" secondItem="rig-du-8bG" secondAttribute="bottom" id="vjL-sk-APB"/>
+                                                    </constraints>
+                                                </collectionViewCellContentView>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <size key="customSize" width="60" height="60"/>
+                                                <connections>
+                                                    <outlet property="colorButton" destination="rig-du-8bG" id="hu5-be-YDU"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="Qjg-bK-m2X" id="tM3-yA-cPy"/>
+                                            <outlet property="delegate" destination="Qjg-bK-m2X" id="bJa-bV-rFN"/>
+                                        </connections>
+                                    </collectionView>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uhs-X0-Wry" customClass="AppView" customModule="BubblePop" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="352.33333333333331" width="374" height="179.99999999999994"/>
                                         <subviews>
@@ -422,7 +287,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="250" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UBP-3A-OyO">
-                                                <rect key="frame" x="45" y="83.333333333333371" width="284" height="33"/>
+                                                <rect key="frame" x="45" y="83.666666666666686" width="284" height="33"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="140" id="mwW-Q9-wG5"/>
@@ -456,10 +321,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TjV-HO-Kp5" customClass="AppView" customModule="BubblePop" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="585" width="374" height="100"/>
+                                        <rect key="frame" x="0.0" y="585.33333333333337" width="374" height="100"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Pwp-vu-ZZb">
-                                                <rect key="frame" x="20" y="24.666666666666629" width="334" height="51"/>
+                                                <rect key="frame" x="20" y="24.333333333333258" width="334" height="51"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRIORITY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0AM-kN-vcZ">
                                                         <rect key="frame" x="0.0" y="0.0" width="334" height="18"/>
@@ -552,20 +417,16 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="AbT-xT-RCA" id="UQN-4C-cCZ"/>
-                        <outlet property="blueButton" destination="6vM-ef-AD5" id="hTT-jt-kPE"/>
+                        <outlet property="colorsCollectionView" destination="klH-Ft-6XG" id="saS-Xk-aFu"/>
                         <outlet property="createButton" destination="gw2-Ri-XND" id="4Ub-ci-TAS"/>
                         <outlet property="descriptionBubbleView" destination="uhs-X0-Wry" id="cWF-2m-esI"/>
                         <outlet property="descriptionTextView" destination="UBP-3A-OyO" id="WdX-TC-Bid"/>
                         <outlet property="dismissButton" destination="tsH-R0-SOv" id="Oqf-zV-ZGS"/>
-                        <outlet property="greenButton" destination="ihz-X7-VVk" id="vef-Wr-atc"/>
-                        <outlet property="purpleButton" destination="P5L-Av-7Bz" id="XLJ-Jg-cio"/>
-                        <outlet property="redButton" destination="4yk-fd-Ydg" id="qrL-5d-3JM"/>
                         <outlet property="slider" destination="f9m-7W-3Ij" id="zg1-n1-74R"/>
                         <outlet property="sliderBubbleView" destination="TjV-HO-Kp5" id="Xo3-Pg-C5c"/>
                         <outlet property="titleBubbleView" destination="wUR-N7-5sK" id="Pja-db-kxE"/>
                         <outlet property="titleLabel" destination="per-pe-cqW" id="iAJ-wH-ly1"/>
                         <outlet property="titleTextField" destination="QDl-61-z31" id="4Sh-He-PgS"/>
-                        <outlet property="yellowButton" destination="U9o-8s-chi" id="fqU-NF-YQi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9BN-tN-q9A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -688,20 +549,8 @@
         </scene>
     </scenes>
     <designables>
-        <designable name="4yk-fd-Ydg">
-            <size key="intrinsicContentSize" width="30" height="30"/>
-        </designable>
-        <designable name="6vM-ef-AD5">
-            <size key="intrinsicContentSize" width="30" height="30"/>
-        </designable>
         <designable name="AbT-xT-RCA">
             <size key="intrinsicContentSize" width="12.666666666666666" height="22"/>
-        </designable>
-        <designable name="P5L-Av-7Bz">
-            <size key="intrinsicContentSize" width="30" height="30"/>
-        </designable>
-        <designable name="U9o-8s-chi">
-            <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
         <designable name="gw2-Ri-XND">
             <size key="intrinsicContentSize" width="90" height="18"/>
@@ -709,7 +558,7 @@
         <designable name="hHk-LA-VOR">
             <size key="intrinsicContentSize" width="69" height="18"/>
         </designable>
-        <designable name="ihz-X7-VVk">
+        <designable name="rig-du-8bG">
             <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
         <designable name="tsH-R0-SOv">
@@ -725,23 +574,11 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

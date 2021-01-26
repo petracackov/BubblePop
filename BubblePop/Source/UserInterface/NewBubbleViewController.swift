@@ -20,21 +20,18 @@ class NewBubbleViewController: UIViewController {
     @IBOutlet private var descriptionBubbleView: AppView?
     @IBOutlet private var descriptionTextView: UITextView?
     @IBOutlet private var createButton: AppButton?
-    @IBOutlet private var purpleButton: AppButton?
-    @IBOutlet private var redButton: AppButton?
-    @IBOutlet private var blueButton: AppButton?
-    @IBOutlet private var greenButton: AppButton?
-    @IBOutlet private var yellowButton: AppButton?
     @IBOutlet private var sliderBubbleView: AppView?
     @IBOutlet private var slider: UISlider?
     @IBOutlet private var dismissButton: AppButton?
     @IBOutlet private var backButton: AppButton?
+    @IBOutlet private var colorsCollectionView: UICollectionView?
     
     weak var delegate: NewBubbleViewControllerDelegate?
     
     var bubble: Bubble = Bubble()
     private var state: State = .new
-
+    private var colours: [UIColor] = [.systemPurple, .systemRed, .systemBlue, .systemGreen, .systemYellow, .systemTeal, .systemPink, .systemGray]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -101,9 +98,6 @@ class NewBubbleViewController: UIViewController {
         createButton?.backgroundColor = bubble.color
         dismissButton?.backgroundColor = bubble.color
         backButton?.backgroundColor = bubble.color
-        [purpleButton, redButton, blueButton, greenButton, yellowButton].forEach { button in
-            button?.shadowColor = button?.backgroundColor == bubble.color ? .clear : .black
-        }
     }
     
     private func reload() {
@@ -130,5 +124,28 @@ private extension NewBubbleViewController {
     enum State {
         case new
         case edit
+    }
+}
+
+extension NewBubbleViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return colours.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCollectionViewCell", for: indexPath) as! ColorCollectionViewCell
+        let color = colours[indexPath.item]
+        cell.color = color
+        cell.isPressedDown = color == bubble.color
+        cell.delegate = self
+        return cell
+    }
+}
+
+extension NewBubbleViewController: ColorCollectionViewCellDelegate {
+    func colorCollectionViewCell(_ sender: ColorCollectionViewCell, didSelectColor color: UIColor) {
+        bubble.color = color
+        colorsCollectionView?.reloadData()
+        refreshUI()
     }
 }
