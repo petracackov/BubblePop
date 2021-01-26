@@ -17,10 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SwN-Lg-KSU">
-                                <rect key="frame" x="0.0" y="44" width="390" height="466"/>
+                                <rect key="frame" x="0.0" y="44" width="390" height="400"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CH0-yt-fMp" customClass="AppView" customModule="BubblePop" customModuleProvider="target">
-                                        <rect key="frame" x="50" y="88" width="290" height="290"/>
+                                        <rect key="frame" x="70.666666666666671" y="75.666666666666671" width="248.66666666666663" height="248.66666666666663"/>
                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="CH0-yt-fMp" secondAttribute="height" id="jmO-aW-Q2Z"/>
@@ -30,7 +30,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bubble Pop" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBW-KD-ZYF">
-                                        <rect key="frame" x="60" y="217.33333333333331" width="270" height="31.333333333333343"/>
+                                        <rect key="frame" x="80.666666666666671" y="184.33333333333334" width="228.66666666666663" height="31.333333333333343"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -46,8 +46,41 @@
                                     <constraint firstItem="XBW-KD-ZYF" firstAttribute="leading" secondItem="CH0-yt-fMp" secondAttribute="leading" constant="10" id="wRO-y4-1Gq"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELM-b4-naW" customClass="AppButton" customModule="BubblePop" customModuleProvider="target">
+                                <rect key="frame" x="330" y="64" width="40" height="40"/>
+                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="MRh-c8-ozQ"/>
+                                    <constraint firstAttribute="width" secondItem="ELM-b4-naW" secondAttribute="height" id="PpF-yL-pYl"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="xmark" catalog="system">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="fullyRounded" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowWidth">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowHeight">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="dismiss:" destination="1dn-8D-enn" eventType="touchUpInside" id="vjS-2n-SR5"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zsu-6B-ORH">
-                                <rect key="frame" x="0.0" y="510" width="390" height="300"/>
+                                <rect key="frame" x="0.0" y="444" width="390" height="300"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KYa-F4-zRW">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="100"/>
@@ -59,7 +92,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ccj-7Z-caS">
-                                                <rect key="frame" x="18" y="20.333333333333371" width="354" height="70.666666666666671"/>
+                                                <rect key="frame" x="18" y="20.333333333333314" width="354" height="70.666666666666671"/>
                                                 <color key="minimumTrackTintColor" systemColor="systemRedColor"/>
                                                 <connections>
                                                     <action selector="redSliderDidChange:" destination="1dn-8D-enn" eventType="valueChanged" id="llF-za-4fX"/>
@@ -137,16 +170,53 @@
                                     <constraint firstAttribute="height" priority="750" constant="300" id="xco-OP-D2e"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoT-bO-cjF" customClass="AppButton" customModule="BubblePop" customModuleProvider="target">
+                                <rect key="frame" x="132.66666666666666" y="744" width="124.99999999999997" height="60"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="QNT-jm-1SC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                <state key="normal" title="Add Bubble">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="fullyRounded" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowHeight">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="confirmButtonPressed:" destination="1dn-8D-enn" eventType="touchUpInside" id="0Bm-dV-Zvx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="o5L-4b-E4N"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="xoT-bO-cjF" secondAttribute="bottom" constant="40" id="1Ps-vQ-HnF"/>
+                            <constraint firstItem="xoT-bO-cjF" firstAttribute="centerX" secondItem="o5L-4b-E4N" secondAttribute="centerX" id="3vY-MN-61R"/>
                             <constraint firstItem="zsu-6B-ORH" firstAttribute="top" secondItem="SwN-Lg-KSU" secondAttribute="bottom" id="4pd-B0-yyc"/>
+                            <constraint firstItem="ELM-b4-naW" firstAttribute="top" secondItem="o5L-4b-E4N" secondAttribute="top" constant="20" id="7CS-Tf-cXJ"/>
                             <constraint firstItem="SwN-Lg-KSU" firstAttribute="leading" secondItem="o5L-4b-E4N" secondAttribute="leading" id="8Gb-1H-EAh"/>
                             <constraint firstItem="SwN-Lg-KSU" firstAttribute="top" secondItem="o5L-4b-E4N" secondAttribute="top" id="9WX-ro-2Jn"/>
                             <constraint firstItem="o5L-4b-E4N" firstAttribute="trailing" secondItem="zsu-6B-ORH" secondAttribute="trailing" id="CoR-CD-gFo"/>
                             <constraint firstItem="zsu-6B-ORH" firstAttribute="leading" secondItem="o5L-4b-E4N" secondAttribute="leading" id="PJ0-Yf-yh0"/>
-                            <constraint firstItem="o5L-4b-E4N" firstAttribute="bottom" secondItem="zsu-6B-ORH" secondAttribute="bottom" id="Qg1-2D-zuV"/>
+                            <constraint firstItem="xoT-bO-cjF" firstAttribute="top" secondItem="zsu-6B-ORH" secondAttribute="bottom" id="PyN-YX-5bc"/>
+                            <constraint firstItem="o5L-4b-E4N" firstAttribute="trailing" secondItem="ELM-b4-naW" secondAttribute="trailing" constant="20" id="UXq-qE-YVG"/>
                             <constraint firstItem="o5L-4b-E4N" firstAttribute="trailing" secondItem="SwN-Lg-KSU" secondAttribute="trailing" id="hQh-5C-Ift"/>
                             <constraint firstItem="zsu-6B-ORH" firstAttribute="height" relation="lessThanOrEqual" secondItem="GBO-EM-34Q" secondAttribute="height" multiplier="0.5" id="nbG-wD-UZv"/>
                         </constraints>
@@ -154,6 +224,8 @@
                     <connections>
                         <outlet property="blueSlider" destination="u9f-t4-epZ" id="Yg4-IB-goU"/>
                         <outlet property="bubbleView" destination="CH0-yt-fMp" id="MpP-2a-Efx"/>
+                        <outlet property="confirmButton" destination="xoT-bO-cjF" id="60f-vA-oPN"/>
+                        <outlet property="dismissButton" destination="ELM-b4-naW" id="Pkk-vU-vma"/>
                         <outlet property="greenSlider" destination="EmR-pa-4V6" id="ZDy-KU-ZxD"/>
                         <outlet property="redSlider" destination="Ccj-7Z-caS" id="j3Y-9M-z6T"/>
                     </connections>
@@ -163,7 +235,16 @@
             <point key="canvasLocation" x="-277" y="90"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="ELM-b4-naW">
+            <size key="intrinsicContentSize" width="17.333333333333332" height="22"/>
+        </designable>
+        <designable name="xoT-bO-cjF">
+            <size key="intrinsicContentSize" width="125" height="18"/>
+        </designable>
+    </designables>
     <resources>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -172,6 +253,12 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

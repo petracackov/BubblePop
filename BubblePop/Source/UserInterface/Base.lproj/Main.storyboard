@@ -22,7 +22,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhx-xl-ngz" customClass="AppButton" customModule="BubblePop" customModuleProvider="target">
-                                <rect key="frame" x="144.66666666666666" y="800" width="124.99999999999997" height="60"/>
+                                <rect key="frame" x="144.66666666666666" y="796" width="124.99999999999997" height="60"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="CL5-1X-KHQ"/>
@@ -60,7 +60,7 @@
                         <constraints>
                             <constraint firstItem="xhx-xl-ngz" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="5UI-HZ-usn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WSV-sy-2xa" secondAttribute="trailing" id="6ky-Yq-to6"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xhx-xl-ngz" secondAttribute="bottom" constant="2" id="SpX-kD-o5T"/>
+                            <constraint firstAttribute="bottom" secondItem="xhx-xl-ngz" secondAttribute="bottom" constant="40" id="SpX-kD-o5T"/>
                             <constraint firstAttribute="bottom" secondItem="WSV-sy-2xa" secondAttribute="bottom" id="Yek-jK-IiM"/>
                             <constraint firstItem="WSV-sy-2xa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZWB-sr-Ugp"/>
                             <constraint firstItem="WSV-sy-2xa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="mVi-ac-UTS"/>
@@ -183,7 +183,7 @@
                                             <constraint firstAttribute="trailing" secondItem="tsH-R0-SOv" secondAttribute="trailing" id="y7E-R3-qdO"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wUR-N7-5sK" customClass="AppView" customModule="BubblePop" customModuleProvider="target">
+                                    <view multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wUR-N7-5sK" customClass="AppView" customModule="BubblePop" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92.666666666666657" width="374" height="94"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bubble Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QDl-61-z31">
@@ -207,7 +207,7 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="fullyRounded" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="klH-Ft-6XG">
+                                    <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="klH-Ft-6XG">
                                         <rect key="frame" x="0.0" y="239.66666666666669" width="374" height="60"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -221,8 +221,55 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ColorCollectionViewCell" id="Xcq-HQ-6cN" customClass="ColorCollectionViewCell" customModule="BubblePop" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="AddColorCollectionViewCell" id="pCD-Pi-7N5" customClass="AddColorCollectionViewCell" customModule="BubblePop" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zfJ-JB-ydI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JvH-Rr-fTf" customClass="AppView" customModule="BubblePop" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="UQz-al-NU1">
+                                                                    <rect key="frame" x="12" y="20.999999999999929" width="36" height="15.333333333333329"/>
+                                                                    <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="60" id="3Z4-Gq-HPs"/>
+                                                                <constraint firstItem="UQz-al-NU1" firstAttribute="centerY" secondItem="JvH-Rr-fTf" secondAttribute="centerY" id="PjF-k8-y4J"/>
+                                                                <constraint firstItem="UQz-al-NU1" firstAttribute="centerX" secondItem="JvH-Rr-fTf" secondAttribute="centerX" id="dR5-N4-2yU"/>
+                                                                <constraint firstAttribute="width" secondItem="JvH-Rr-fTf" secondAttribute="height" id="dio-rI-7F7"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="fullyRounded" value="YES"/>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                                    <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowWidth">
+                                                                    <real key="value" value="1"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowHeight">
+                                                                    <real key="value" value="2"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                    <real key="value" value="1"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="JvH-Rr-fTf" firstAttribute="top" secondItem="zfJ-JB-ydI" secondAttribute="top" id="DzD-rI-UJm"/>
+                                                        <constraint firstAttribute="bottom" secondItem="JvH-Rr-fTf" secondAttribute="bottom" id="TIc-VL-Q9t"/>
+                                                        <constraint firstAttribute="trailing" secondItem="JvH-Rr-fTf" secondAttribute="trailing" id="XwQ-lF-cEG"/>
+                                                        <constraint firstItem="JvH-Rr-fTf" firstAttribute="leading" secondItem="zfJ-JB-ydI" secondAttribute="leading" id="xqH-m1-SHM"/>
+                                                    </constraints>
+                                                </collectionViewCellContentView>
+                                            </collectionViewCell>
+                                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ColorCollectionViewCell" id="Xcq-HQ-6cN" customClass="ColorCollectionViewCell" customModule="BubblePop" customModuleProvider="target">
+                                                <rect key="frame" x="70" y="0.0" width="60" height="60"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7Zt-c6-oLJ">
                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -570,6 +617,7 @@
     </designables>
     <resources>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

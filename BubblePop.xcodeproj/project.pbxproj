@@ -26,6 +26,8 @@
 		C0C4E6D22598E4DF00085C77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0C4E6D12598E4DF00085C77 /* Assets.xcassets */; };
 		C0C4E6D52598E4DF00085C77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0C4E6D32598E4DF00085C77 /* LaunchScreen.storyboard */; };
 		C0D92DC7259DF820000DA496 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D92DC6259DF820000DA496 /* Appearance.swift */; };
+		C0DF175C25C00BA700F75B7D /* AddColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DF175B25C00BA700F75B7D /* AddColorCollectionViewCell.swift */; };
+		C0E04B3125C025D5002856FD /* ColorTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E04B3025C025D5002856FD /* ColorTools.swift */; };
 		C0ED2ABF25BEE2BC0007D252 /* ColorViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0ED2ABE25BEE2BC0007D252 /* ColorViewController.storyboard */; };
 		C0ED2AC225BEE2DA0007D252 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ED2AC125BEE2DA0007D252 /* ColorViewController.swift */; };
 		C0ED2AC525BEF5F40007D252 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ED2AC425BEF5F40007D252 /* ColorCollectionViewCell.swift */; };
@@ -53,6 +55,8 @@
 		C0C4E6D42598E4DF00085C77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0C4E6D62598E4DF00085C77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0D92DC6259DF820000DA496 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
+		C0DF175B25C00BA700F75B7D /* AddColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddColorCollectionViewCell.swift; sourceTree = "<group>"; };
+		C0E04B3025C025D5002856FD /* ColorTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTools.swift; sourceTree = "<group>"; };
 		C0ED2ABE25BEE2BC0007D252 /* ColorViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ColorViewController.storyboard; sourceTree = "<group>"; };
 		C0ED2AC125BEE2DA0007D252 /* ColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
 		C0ED2AC425BEF5F40007D252 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 				C0080D782598EB7F00116BBD /* AppView.swift */,
 				C0080D712598E95000116BBD /* AppButton.swift */,
 				C030A6B225A1ED5400526A49 /* CalculationTools.swift */,
+				C0E04B3025C025D5002856FD /* ColorTools.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -169,11 +174,10 @@
 				C0C4E6E12598E54700085C77 /* Main */,
 				C030A6A4259E126300526A49 /* Bubbles */,
 				C0ED2ABD25BEE2890007D252 /* ColorViewController */,
+				C0DF175A25C00B5200F75B7D /* NewBubble */,
 				C0C4E6CB2598E4DE00085C77 /* Main.storyboard */,
 				C0C4E6C92598E4DE00085C77 /* ViewController.swift */,
-				C0080D752598EB2A00116BBD /* NewBubbleViewController.swift */,
 				C0080D7B2598F47400116BBD /* BubbleDetailsViewController.swift */,
-				C0ED2AC425BEF5F40007D252 /* ColorCollectionViewCell.swift */,
 			);
 			path = UserInterface;
 			sourceTree = "<group>";
@@ -184,6 +188,16 @@
 				C0C4E6D32598E4DF00085C77 /* LaunchScreen.storyboard */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		C0DF175A25C00B5200F75B7D /* NewBubble */ = {
+			isa = PBXGroup;
+			children = (
+				C0080D752598EB2A00116BBD /* NewBubbleViewController.swift */,
+				C0ED2AC425BEF5F40007D252 /* ColorCollectionViewCell.swift */,
+				C0DF175B25C00BA700F75B7D /* AddColorCollectionViewCell.swift */,
+			);
+			path = NewBubble;
 			sourceTree = "<group>";
 		};
 		C0ED2ABD25BEE2890007D252 /* ColorViewController */ = {
@@ -273,6 +287,7 @@
 				C0D92DC7259DF820000DA496 /* Appearance.swift in Sources */,
 				C030A6AA259E148100526A49 /* BubblesScene.swift in Sources */,
 				C0ED2AC525BEF5F40007D252 /* ColorCollectionViewCell.swift in Sources */,
+				C0DF175C25C00BA700F75B7D /* AddColorCollectionViewCell.swift in Sources */,
 				C0C4E6D02598E4DE00085C77 /* Model.xcdatamodeld in Sources */,
 				C030A6A6259E12A800526A49 /* BubblesView.swift in Sources */,
 				C0080D722598E95000116BBD /* AppButton.swift in Sources */,
@@ -284,6 +299,7 @@
 				C0ED2AC225BEE2DA0007D252 /* ColorViewController.swift in Sources */,
 				C0C4E6C62598E4DE00085C77 /* AppDelegate.swift in Sources */,
 				C0C4E6C82598E4DE00085C77 /* SceneDelegate.swift in Sources */,
+				C0E04B3125C025D5002856FD /* ColorTools.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

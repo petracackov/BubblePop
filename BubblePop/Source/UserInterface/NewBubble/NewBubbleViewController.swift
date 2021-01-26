@@ -30,12 +30,15 @@ class NewBubbleViewController: UIViewController {
     
     var bubble: Bubble = Bubble()
     private var state: State = .new
-    private var colours: [UIColor] = [.systemPurple, .systemRed, .systemBlue, .systemGreen, .systemYellow, .systemTeal, .systemPink, .systemGray]
+    private var cells: [Cell] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(closeKeyboard)))
+        let tapGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
+        tapGestureRecogniser.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGestureRecogniser)
+        
         descriptionTextView?.textContainer.maximumNumberOfLines = 0
         descriptionTextView?.textContainer.lineBreakMode = .byTruncatingTail
         state = bubble.createdAt != nil ? .edit : .new
@@ -70,7 +73,7 @@ class NewBubbleViewController: UIViewController {
     @IBAction private func colorButtonPressed(_ sender: AppButton) {
         if let selectedColor = sender.backgroundColor {
             bubble.color = selectedColor
-            refreshUI()
+            refreshColors()
         }
     }
     
@@ -91,7 +94,7 @@ class NewBubbleViewController: UIViewController {
         
     }
     
-    private func refreshUI() {
+    private func refreshColors() {
         slider?.minimumTrackTintColor = bubble.color
         descriptionBubbleView?.backgroundColor = bubble.color
         titleBubbleView?.backgroundColor = bubble.color
@@ -116,7 +119,14 @@ class NewBubbleViewController: UIViewController {
             backButton?.isHidden = false
             titleLabel?.text = "EDIT BUBBLE"
         }
-        refreshUI()
+        generateColorCells()
+    }
+    
+    private func generateColorCells() {
+        cells.append(.addNewColor)
+        cells.append(contentsOf: [UIColor.systemPurple, UIColor.systemRed, UIColor.systemBlue, UIColor.systemGreen, UIColor.systemYellow, UIColor.systemTeal, UIColor.systemPink, UIColor.systemGray].map { Cell.color($0) })
+        colorsCollectionView?.reloadData()
+        refreshColors()
     }
 }
 
@@ -125,20 +135,42 @@ private extension NewBubbleViewController {
         case new
         case edit
     }
+    enum Cell {
+        case color(UIColor?)
+        case addNewColor
+    }
 }
 
 extension NewBubbleViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return colours.count
+        return cells.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        switch cells[indexPath.item] {
+        case .addNewColor:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddColorCollectionViewCell", for: indexPath) as! AddColorCollectionViewCell
+            return cell
+        case .color(let color):
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCollectionViewCell", for: indexPath) as! ColorCollectionViewCell
-        let color = colours[indexPath.item]
         cell.color = color
         cell.isPressedDown = color == bubble.color
         cell.delegate = self
         return cell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch cells[indexPath.item] {
+        case .addNewColor:
+            let controller = UIStoryboard(name: "ColorViewController", bundle: nil).instantiateViewController(identifier: "ColorViewController") as! ColorViewController
+            controller.modalPresentationStyle = .fullScreen
+            controller.modalTransitionStyle = .crossDissolve
+            controller.delegate = self
+            present(controller, animated: true, completion: nil)
+        case .color(_):
+            return
+        }
     }
 }
 
@@ -146,6 +178,16 @@ extension NewBubbleViewController: ColorCollectionViewCellDelegate {
     func colorCollectionViewCell(_ sender: ColorCollectionViewCell, didSelectColor color: UIColor) {
         bubble.color = color
         colorsCollectionView?.reloadData()
-        refreshUI()
+        refreshColors()
+    }
+}
+
+extension NewBubbleViewController: ColorViewControllerDelegate {
+    func colorViewController(_ sender: ColorViewController, didSelectColor color: UIColor) {
+        // TODO refetch colors from database
+        cells.insert(.color(color), at: 1)
+        bubble.color = color
+        colorsCollectionView?.reloadData()
+        refreshColors()
     }
 }
