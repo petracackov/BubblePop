@@ -30,6 +30,10 @@ class DatabaseEntity {
         self.c_fetchDataFromEntity()
     }
     
+    func injectEntity(entity: BaseEntity) {
+        self.entity = entity
+    }
+    
     /// must be called from context thread
     func c_fetchDataFromEntity() {
         if let entity = entity {

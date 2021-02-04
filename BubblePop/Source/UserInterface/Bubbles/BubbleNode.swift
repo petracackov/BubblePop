@@ -29,7 +29,7 @@ class BubbleNode: SKShapeNode {
         let size: CGFloat = CGFloat(100 + bubble.scale*100)
         let path = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: size, height: size)).cgPath
         self.path = path
-        self.fillColor = bubble.color
+        self.fillColor = bubble.color.color
         self.lineWidth = 0
         updatePhysicsBody(path: path)
         

@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D64" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="BaseEntity" representedClassName="BaseEntity" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
     </entity>
+    <entity name="BubbleColorEntity" representedClassName="BubbleColorEntity" parentEntity="BaseEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="color" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer" customClassName="[Double]"/>
+        <relationship name="bubbles" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BubbleEntity" inverseName="color" inverseEntity="BubbleEntity"/>
+    </entity>
     <entity name="BubbleEntity" representedClassName="BubbleEntity" parentEntity="BaseEntity" syncable="YES" codeGenerationType="class">
-        <attribute name="color" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[Double]"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="details" optional="YES" attributeType="String"/>
         <attribute name="poppedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="size" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="color" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BubbleColorEntity" inverseName="bubbles" inverseEntity="BubbleColorEntity"/>
     </entity>
     <elements>
         <element name="BaseEntity" positionX="-54" positionY="36" width="128" height="44"/>
+        <element name="BubbleColorEntity" positionX="-54" positionY="27" width="128" height="59"/>
         <element name="BubbleEntity" positionX="-63" positionY="-18" width="128" height="119"/>
     </elements>
 </model>

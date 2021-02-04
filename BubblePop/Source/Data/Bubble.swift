@@ -10,7 +10,7 @@ import UIKit
 class Bubble: DatabaseEntity {
     var title: String?
     var description: String?
-    var color: UIColor = .systemPurple
+    var color: BubbleColor = BubbleColor()
     var scale: Double = 0.5
     var createdAt: Date?
     var poppedAt: Date?
@@ -20,10 +20,12 @@ class Bubble: DatabaseEntity {
         guard let entity = entity as? BubbleEntity else { return }
         self.title = entity.title
         self.description = entity.details
-        self.color = ColorTools.convertToColor(from: entity.color)
         self.scale = entity.size
         self.createdAt = entity.createdAt
         self.poppedAt = entity.poppedAt
+        if let colorEntity = entity.color {
+            self.color = BubbleColor(entity: colorEntity)
+        }
     }
     
     override func c_writeDataToEntity() {
@@ -34,9 +36,17 @@ class Bubble: DatabaseEntity {
         }
         entity.title = self.title
         entity.details = self.description
-        entity.color = ColorTools.convertToRGBAComponents(from: self.color)
         entity.size = self.scale
         entity.poppedAt = self.poppedAt
         entity.createdAt = self.createdAt
+        
+        entity.color = {
+            if let currentEntity = entity.color {
+                color.injectEntity(entity: currentEntity)
+            }
+            color.c_writeDataToEntity()
+            return color.entity as? BubbleColorEntity
+        }()
+        
     }
 }

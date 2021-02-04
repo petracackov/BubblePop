@@ -50,8 +50,8 @@ class BubbleDetailsViewController: UIViewController {
         guard let bubble = bubble else { return }
         titleLabel?.text = bubble.title
         descriptionLabel?.text = bubble.description
-        bubbleView?.backgroundColor = bubble.color
-        popButton?.backgroundColor = bubble.color
+        bubbleView?.backgroundColor = bubble.color.color
+        popButton?.backgroundColor = bubble.color.color
     }
 
     

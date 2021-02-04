@@ -183,7 +183,7 @@
                                             <constraint firstAttribute="trailing" secondItem="tsH-R0-SOv" secondAttribute="trailing" id="y7E-R3-qdO"/>
                                         </constraints>
                                     </view>
-                                    <view multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wUR-N7-5sK" customClass="AppView" customModule="BubblePop" customModuleProvider="target">
+                                    <view multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wUR-N7-5sK" customClass="AppView" customModule="BubblePop" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92.666666666666657" width="374" height="94"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bubble Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QDl-61-z31">
