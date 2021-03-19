@@ -10,7 +10,7 @@ import UIKit
 class BubbleColor: DatabaseEntity {
     var color: UIColor = .systemPurple
     //var bubbles: [Bubble] = []
-    
+
     
     override func c_fetchDataFromEntity() {
         super.c_fetchDataFromEntity()

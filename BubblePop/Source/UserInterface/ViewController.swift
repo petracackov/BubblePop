@@ -11,15 +11,32 @@ class ViewController: UIViewController {
 
     @IBOutlet private var bubblesView: BubblesView?
     @IBOutlet private var addBubbleButton: AppButton?
+    @IBOutlet private var colorsContentView: UIView?
+    @IBOutlet private var colorsContentViewTrailingConstraint: NSLayoutConstraint?
+    @IBOutlet private var colorsContentViewHeight: NSLayoutConstraint?
+    @IBOutlet private var colorsCollectionView: UICollectionView?
+    @IBOutlet private var colorSelectionButton: UIButton?
     
     private var data: [Bubble]?
+    private var colorsAreExpanded: Bool = false {
+        didSet { animateColorSelectionView() }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bubblesView?.bubblesSceneDelegate = self
+        colorsAreExpanded = false
+        
+        colorsContentView?.clipsToBounds = false
+        colorsContentView?.layer.cornerRadius = 10
+        
         reloadData()
     }
 
+    @IBAction func colorSelectionButtonPressed(_ sender: Any) {
+        colorsAreExpanded.toggle()
+    }
+    
     @IBAction private func addNewBubble(_ sender: Any) {
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "NewBubbleViewController") as! NewBubbleViewController
         controller.delegate = self
@@ -40,6 +57,25 @@ class ViewController: UIViewController {
         data?.forEach { bubble in
             self.bubblesView?.removeBubble(bubble)
             self.bubblesView?.addBubble(bubble)
+        }
+    }
+    
+    private func animateColorSelectionView() {
+        
+        
+        
+        
+        UIView.animate(withDuration: 0.3) {
+            if self.colorsAreExpanded {
+                self.colorsContentViewTrailingConstraint?.constant = self.view.bounds.width - (self.colorsContentView?.bounds.width ?? 0)
+                self.colorSelectionButton?.transform = CGAffineTransform(rotationAngle: .pi)
+                self.colorsContentView?.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+            } else {
+                self.colorsContentViewTrailingConstraint?.constant = 0
+                self.colorSelectionButton?.transform = .identity
+                self.colorsContentView?.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
+            }
+            self.view.layoutIfNeeded()
         }
     }
     

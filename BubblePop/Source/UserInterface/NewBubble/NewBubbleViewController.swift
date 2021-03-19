@@ -31,6 +31,9 @@ class NewBubbleViewController: UIViewController {
     var bubble: Bubble = Bubble()
     private var state: State = .new
     private var cells: [Cell] = []
+    private var colours: [BubbleColor] = [] {
+        didSet { generateColorCells() }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,14 +115,26 @@ class NewBubbleViewController: UIViewController {
             backButton?.isHidden = false
             titleLabel?.text = "EDIT BUBBLE"
         }
-        generateColorCells()
+        fetchColors()
     }
     
     private func generateColorCells() {
         cells.append(.addNewColor)
-        cells.append(contentsOf: [UIColor.systemPurple, UIColor.systemRed, UIColor.systemBlue, UIColor.systemGreen, UIColor.systemYellow, UIColor.systemTeal, UIColor.systemPink, UIColor.systemGray].map { Cell.color($0) })
+        if colours.isEmpty {
+            cells.append(.color(UIColor.systemPurple))
+        } else {
+            cells.append(contentsOf: colours.map { .color($0.color) })
+        }
         colorsCollectionView?.reloadData()
         refreshColors()
+    }
+    
+    private func fetchColors() {
+        BubbleColor.fetchAllObjects { (colours, error) in
+            if let colours = colours as? [BubbleColor] {
+                self.colours = colours
+            }
+        }
     }
 }
 
@@ -145,11 +160,11 @@ extension NewBubbleViewController: UICollectionViewDelegate, UICollectionViewDat
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddColorCollectionViewCell", for: indexPath) as! AddColorCollectionViewCell
             return cell
         case .color(let color):
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCollectionViewCell", for: indexPath) as! ColorCollectionViewCell
-        cell.color = color
-        cell.isPressedDown = color == bubble.color.color
-        cell.delegate = self
-        return cell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCollectionViewCell", for: indexPath) as! ColorCollectionViewCell
+            cell.color = color
+            cell.isPressedDown = color == bubble.color.color
+            cell.delegate = self
+            return cell
         }
     }
     
@@ -177,7 +192,6 @@ extension NewBubbleViewController: ColorCollectionViewCellDelegate {
 
 extension NewBubbleViewController: ColorViewControllerDelegate {
     func colorViewController(_ sender: ColorViewController, didSelectColor color: UIColor) {
-        // TODO refetch colors from database
         cells.insert(.color(color), at: 1)
         bubble.color.color = color
         colorsCollectionView?.reloadData()

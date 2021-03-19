@@ -47,6 +47,5 @@ class Bubble: DatabaseEntity {
             color.c_writeDataToEntity()
             return color.entity as? BubbleColorEntity
         }()
-        
     }
 }
