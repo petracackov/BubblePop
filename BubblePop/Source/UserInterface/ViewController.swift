@@ -18,6 +18,9 @@ class ViewController: UIViewController {
     @IBOutlet private var colorSelectionButton: UIButton?
     
     private var data: [Bubble]?
+    private var colours: [BubbleColor] = [] {
+        didSet { print(colours.map { $0.color })}
+    }
     private var colorsAreExpanded: Bool = false {
         didSet { animateColorSelectionView() }
     }
@@ -29,6 +32,7 @@ class ViewController: UIViewController {
         
         colorsContentView?.clipsToBounds = false
         colorsContentView?.layer.cornerRadius = 10
+        colorsContentView?.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
         
         reloadData()
     }
@@ -51,6 +55,10 @@ class ViewController: UIViewController {
             self.data = objects as? [Bubble]
             self.refreshBubbles()
         }
+        BubbleColor.fetchAllObjects { (colours, error) in
+            if let colours = colours as? [BubbleColor] { self.colours = colours }
+            self.colorsCollectionView?.reloadData()
+        }
     }
     
     private func refreshBubbles() {
@@ -61,21 +69,21 @@ class ViewController: UIViewController {
     }
     
     private func animateColorSelectionView() {
-        
-        
-        
-        
-        UIView.animate(withDuration: 0.3) {
+        colorsContentView?.layer.cornerRadius = 10
+        colorsContentView?.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
+        UIView.animate(withDuration: 2) {
             if self.colorsAreExpanded {
                 self.colorsContentViewTrailingConstraint?.constant = self.view.bounds.width - (self.colorsContentView?.bounds.width ?? 0)
                 self.colorSelectionButton?.transform = CGAffineTransform(rotationAngle: .pi)
-                self.colorsContentView?.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+//                self.colorsContentView?.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
             } else {
                 self.colorsContentViewTrailingConstraint?.constant = 0
                 self.colorSelectionButton?.transform = .identity
-                self.colorsContentView?.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
+//                self.colorsContentView?.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
             }
             self.view.layoutIfNeeded()
+        } completion: { (_) in
+            
         }
     }
     
@@ -110,5 +118,27 @@ extension ViewController: BubblesSceneDelegate {
         bubble.deleteFromDatabase {
             self.data = self.data?.filter { $0.id != bubble.id }
         }
+    }
+}
+
+extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        colours.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCollectionViewCell", for: indexPath) as! ColorCollectionViewCell
+        cell.color = colours[indexPath.item].color
+        //cell.isPressedDown = color == bubble.color.color
+        cell.delegate = self
+        return cell
+    }
+}
+
+extension ViewController: ColorCollectionViewCellDelegate {
+    func colorCollectionViewCell(_ sender: ColorCollectionViewCell, didSelectColor color: UIColor) {
+//        bubble.color.color = color
+//        colorsCollectionView?.reloadData()
+//        refreshColors()
     }
 }
