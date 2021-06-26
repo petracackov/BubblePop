@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ColorViewControllerDelegate: class {
-    func colorViewController(_ sender: ColorViewController, didSelectColor color: UIColor)
+    func colorViewController(_ sender: ColorViewController, didAddColor color: UIColor)
 }
 
 class ColorViewController: UIViewController {
@@ -63,7 +63,7 @@ class ColorViewController: UIViewController {
     
     @IBAction private func confirmButtonPressed(_ sender: Any) {
         if let color = currentColor {
-            delegate?.colorViewController(self, didSelectColor: color)
+            delegate?.colorViewController(self, didAddColor: color)
             dismiss(animated: true, completion: nil)
         }
         

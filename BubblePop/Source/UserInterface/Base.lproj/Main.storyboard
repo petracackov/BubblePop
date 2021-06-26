@@ -21,10 +21,10 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yj-VO-CRi" customClass="AppView" customModule="BubblePop" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yj-VO-CRi" customClass="AppView" customModule="BubblePop" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="80"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rdw-cn-igX">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rdw-cn-igX" customClass="AppView" customModule="BubblePop" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="20" height="80"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcL-X7-YsJ">
@@ -45,6 +45,50 @@
                                             <constraint firstItem="jcL-X7-YsJ" firstAttribute="top" secondItem="Rdw-cn-igX" secondAttribute="top" id="nZP-wi-gx5"/>
                                             <constraint firstAttribute="height" constant="80" id="wfU-hl-6DQ"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowHeight">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r4b-ON-aKG" customClass="AppView" customModule="BubblePop" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="0.0" width="394" height="80"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowHeight">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kg4-xP-ATR">
                                         <rect key="frame" x="20" y="0.0" width="394" height="80"/>
@@ -115,12 +159,16 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="r4b-ON-aKG" firstAttribute="leading" secondItem="kg4-xP-ATR" secondAttribute="leading" id="2E0-XS-Pz0"/>
                                     <constraint firstAttribute="trailing" secondItem="kg4-xP-ATR" secondAttribute="trailing" id="5hQ-Yv-zZp"/>
                                     <constraint firstItem="kg4-xP-ATR" firstAttribute="leading" secondItem="Rdw-cn-igX" secondAttribute="trailing" id="8G7-QT-jcw"/>
+                                    <constraint firstItem="r4b-ON-aKG" firstAttribute="trailing" secondItem="kg4-xP-ATR" secondAttribute="trailing" id="9F3-jR-q64"/>
+                                    <constraint firstItem="r4b-ON-aKG" firstAttribute="bottom" secondItem="kg4-xP-ATR" secondAttribute="bottom" id="DLD-TS-bol"/>
                                     <constraint firstItem="Rdw-cn-igX" firstAttribute="top" secondItem="6yj-VO-CRi" secondAttribute="top" id="Oj2-DL-hJH"/>
                                     <constraint firstAttribute="bottom" secondItem="Rdw-cn-igX" secondAttribute="bottom" id="WnQ-g4-aj3"/>
                                     <constraint firstItem="Rdw-cn-igX" firstAttribute="leading" secondItem="6yj-VO-CRi" secondAttribute="leading" id="Yr9-2N-1tp"/>
                                     <constraint firstAttribute="bottom" secondItem="kg4-xP-ATR" secondAttribute="bottom" id="ehx-cy-c94"/>
+                                    <constraint firstItem="r4b-ON-aKG" firstAttribute="top" secondItem="kg4-xP-ATR" secondAttribute="top" id="lk6-3s-WVh"/>
                                     <constraint firstItem="kg4-xP-ATR" firstAttribute="top" secondItem="6yj-VO-CRi" secondAttribute="top" id="yX9-9C-i07"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ColorCollectionViewCellDelegate: class {
-    func colorCollectionViewCell(_ sender: ColorCollectionViewCell, didSelectColor color: UIColor)
+    func colorCollectionViewCell(_ sender: ColorCollectionViewCell, didSelectColor color: BubbleColor)
 }
 
 class ColorCollectionViewCell: UICollectionViewCell {
@@ -17,7 +17,7 @@ class ColorCollectionViewCell: UICollectionViewCell {
     
     weak var delegate: ColorCollectionViewCellDelegate?
     
-    var color: UIColor? {
+    var bubbleColor: BubbleColor? {
         didSet { reload() }
     }
     
@@ -26,13 +26,13 @@ class ColorCollectionViewCell: UICollectionViewCell {
     }
     
     private func reload() {
-        colorButton?.backgroundColor = color
+        colorButton?.backgroundColor = bubbleColor?.color
         colorButton?.shadowColor = isPressedDown ? .clear : .black
     }
     
     @IBAction private func didSelectColor(_ sender: Any) {
-        guard let color = color else { return }
-        delegate?.colorCollectionViewCell(self, didSelectColor: color)
+        guard let bubbleColor = bubbleColor else { return }
+        delegate?.colorCollectionViewCell(self, didSelectColor: bubbleColor)
     }
     
     

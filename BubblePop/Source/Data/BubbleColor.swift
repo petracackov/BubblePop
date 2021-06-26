@@ -11,6 +11,10 @@ class BubbleColor: DatabaseEntity {
     var color: UIColor = .systemPurple
     //var bubbles: [Bubble] = []
 
+    convenience init(_ color: UIColor) {
+        self.init()
+        self.color = color
+    }
     
     override func c_fetchDataFromEntity() {
         super.c_fetchDataFromEntity()

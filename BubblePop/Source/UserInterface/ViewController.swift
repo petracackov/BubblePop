@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     
     private var data: [Bubble]?
     private var colours: [BubbleColor] = [] {
-        didSet { print(colours.map { $0.color })}
+        didSet { colorsContentView?.isHidden = colours.isEmpty }
     }
     private var colorsAreExpanded: Bool = false {
         didSet { animateColorSelectionView() }
@@ -28,13 +28,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bubblesView?.bubblesSceneDelegate = self
-        colorsAreExpanded = false
-        
-        colorsContentView?.clipsToBounds = false
+        animateColorSelectionView(duration: 0)
+
         colorsContentView?.layer.cornerRadius = 10
         colorsContentView?.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
-        
-        reloadData()
+        reloadBubbles()
+        reloadColors()
     }
 
     @IBAction func colorSelectionButtonPressed(_ sender: Any) {
@@ -50,13 +49,21 @@ class ViewController: UIViewController {
        
     }
     
-    private func reloadData() {
+    private func reloadBubbles() {
         Bubble.fetchAllObjects { (objects, error) in
             self.data = objects as? [Bubble]
             self.refreshBubbles()
         }
+
+    }
+
+    private func reloadColors() {
         BubbleColor.fetchAllObjects { (colours, error) in
-            if let colours = colours as? [BubbleColor] { self.colours = colours }
+            guard let colours = colours as? [BubbleColor] else {
+                self.colours = []
+                return
+            }
+            self.colours = colours
             self.colorsCollectionView?.reloadData()
         }
     }
@@ -68,22 +75,16 @@ class ViewController: UIViewController {
         }
     }
     
-    private func animateColorSelectionView() {
-        colorsContentView?.layer.cornerRadius = 10
-        colorsContentView?.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
-        UIView.animate(withDuration: 2) {
+    private func animateColorSelectionView(duration: Double = 0.5) {
+        UIView.animate(withDuration: duration) {
             if self.colorsAreExpanded {
-                self.colorsContentViewTrailingConstraint?.constant = self.view.bounds.width - (self.colorsContentView?.bounds.width ?? 0)
-                self.colorSelectionButton?.transform = CGAffineTransform(rotationAngle: .pi)
-//                self.colorsContentView?.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
-            } else {
                 self.colorsContentViewTrailingConstraint?.constant = 0
                 self.colorSelectionButton?.transform = .identity
-//                self.colorsContentView?.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
+            } else {
+                self.colorsContentViewTrailingConstraint?.constant = self.view.bounds.width - (self.colorsContentView?.bounds.width ?? 0)
+                self.colorSelectionButton?.transform = CGAffineTransform(rotationAngle: .pi)
             }
             self.view.layoutIfNeeded()
-        } completion: { (_) in
-            
         }
     }
     
@@ -93,6 +94,7 @@ extension ViewController: NewBubbleViewControllerDelegate {
     func newBubbleViewController(_ sender: NewBubbleViewController, didAddNewBubble bubble: Bubble) {
         data?.append(bubble)
         bubblesView?.addBubble(bubble, inMiddle: true)
+        reloadColors()
     }
     
     func newBubbleViewController(_ sender: NewBubbleViewController, didChangeBubble bubble: Bubble) {
@@ -128,7 +130,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCollectionViewCell", for: indexPath) as! ColorCollectionViewCell
-        cell.color = colours[indexPath.item].color
+        cell.bubbleColor = colours[indexPath.item]
         //cell.isPressedDown = color == bubble.color.color
         cell.delegate = self
         return cell
@@ -136,7 +138,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 }
 
 extension ViewController: ColorCollectionViewCellDelegate {
-    func colorCollectionViewCell(_ sender: ColorCollectionViewCell, didSelectColor color: UIColor) {
+    func colorCollectionViewCell(_ sender: ColorCollectionViewCell, didSelectColor color: BubbleColor) {
 //        bubble.color.color = color
 //        colorsCollectionView?.reloadData()
 //        refreshColors()
