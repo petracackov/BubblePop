@@ -197,7 +197,6 @@ extension NewBubbleViewController: ColorViewControllerDelegate {
     func colorViewController(_ sender: ColorViewController, didAddColor color: UIColor) {
         selectedColor = BubbleColor(color)
         cells.insert(.color(selectedColor), at: 1)
-        //bubble.color.color = color
         colorsCollectionView?.reloadData()
         refreshColors()
     }

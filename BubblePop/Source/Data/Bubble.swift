@@ -41,9 +41,9 @@ class Bubble: DatabaseEntity {
         entity.createdAt = self.createdAt
         
         entity.color = {
-            if let currentEntity = entity.color {
-                color.injectEntity(entity: currentEntity)
-            }
+//            if let currentEntity = entity.color {
+//                color.injectEntity(entity: currentEntity)
+//            }
             color.c_writeDataToEntity()
             return color.entity as? BubbleColorEntity
         }()
