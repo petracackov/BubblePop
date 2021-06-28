@@ -14,7 +14,13 @@ class Bubble: DatabaseEntity {
     var scale: Double = 0.5
     var createdAt: Date?
     var poppedAt: Date?
-    
+
+    convenience init(title: String, description: String) {
+        self.init()
+        self.title = title
+        self.description = description
+    }
+
     override func c_fetchDataFromEntity() {
         super.c_fetchDataFromEntity()
         guard let entity = entity as? BubbleEntity else { return }

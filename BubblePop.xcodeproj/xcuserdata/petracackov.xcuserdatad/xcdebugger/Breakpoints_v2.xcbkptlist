@@ -62,8 +62,8 @@
             filePath = "BubblePop/Source/Data/Bubble.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "c_writeDataToEntity()"
             landmarkType = "7">
          </BreakpointContent>
@@ -113,6 +113,86 @@
             startingLineNumber = "68"
             endingLineNumber = "68"
             landmarkName = "create(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DE4F4EC3-EDF1-4F0D-8E99-83C422BB7D62"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BubblePopWidget/Source/BubbleTimeline.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "getTimeline(in:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "78975A2C-4FA1-4EE4-BCC3-54CFD7DB48BA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BubblePopWidget/Source/BubbleTimeline.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "getTimeline(in:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "78975A2C-4FA1-4EE4-BCC3-54CFD7DB48BA - f638c863bab252f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BubblePopWidgetExtension.BubbleTimeline.getTimeline(in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;BubblePopWidgetExtension.BubbleEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "BubblePopWidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/petracackov/GitHub/BubblePop/BubblePopWidget/Source/BubbleTimeline.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  uuid = "78975A2C-4FA1-4EE4-BCC3-54CFD7DB48BA - cd9a437a10eda396"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;BubblePopWidgetExtension.DatabaseEntity&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in BubblePopWidgetExtension.BubbleTimeline.getTimeline(in: WidgetKit.TimelineProviderContext, completion: (WidgetKit.Timeline&lt;BubblePopWidgetExtension.BubbleEntry&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "BubblePopWidgetExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/petracackov/GitHub/BubblePop/BubblePopWidget/Source/BubbleTimeline.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "468">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "813C0AA6-187F-4B87-8A56-39E543B5D6E4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BubblePopWidget/Source/BubbleTimeline.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "getTimeline(in:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -18,6 +18,13 @@
 		C030A6B325A1ED5400526A49 /* CalculationTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030A6B225A1ED5400526A49 /* CalculationTools.swift */; };
 		C032B3BE259A092700DB14CC /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032B3BD259A092700DB14CC /* DatabaseManager.swift */; };
 		C032B3C3259A0E7400DB14CC /* DatabaseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032B3C2259A0E7300DB14CC /* DatabaseEntity.swift */; };
+		C074BD6426878EFE0031A76F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C074BD6326878EFE0031A76F /* WidgetKit.framework */; };
+		C074BD6626878EFE0031A76F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C074BD6526878EFE0031A76F /* SwiftUI.framework */; };
+		C074BD6926878EFE0031A76F /* BubblePopWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C074BD6826878EFE0031A76F /* BubblePopWidget.swift */; };
+		C074BD6B26878EFF0031A76F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C074BD6A26878EFF0031A76F /* Assets.xcassets */; };
+		C074BD6F26878EFF0031A76F /* BubblePopWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C074BD6126878EFE0031A76F /* BubblePopWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C074BD792687922C0031A76F /* BubbleTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = C074BD782687922C0031A76F /* BubbleTimeline.swift */; };
+		C074BD7F2687927E0031A76F /* BubblePopWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C074BD7E2687927E0031A76F /* BubblePopWidgetEntryView.swift */; };
 		C0C4E6C62598E4DE00085C77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C4E6C52598E4DE00085C77 /* AppDelegate.swift */; };
 		C0C4E6C82598E4DE00085C77 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C4E6C72598E4DE00085C77 /* SceneDelegate.swift */; };
 		C0C4E6CA2598E4DE00085C77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C4E6C92598E4DE00085C77 /* ViewController.swift */; };
@@ -32,7 +39,38 @@
 		C0ED2ABF25BEE2BC0007D252 /* ColorViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0ED2ABE25BEE2BC0007D252 /* ColorViewController.storyboard */; };
 		C0ED2AC225BEE2DA0007D252 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ED2AC125BEE2DA0007D252 /* ColorViewController.swift */; };
 		C0ED2AC525BEF5F40007D252 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0ED2AC425BEF5F40007D252 /* ColorCollectionViewCell.swift */; };
+		C0EE147E2687960000354C8E /* BubbleEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EE147D2687960000354C8E /* BubbleEntry.swift */; };
+		C0EE14832687963900354C8E /* Bubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0080D672598E80500116BBD /* Bubble.swift */; };
+		C0EE148A2687989F00354C8E /* DatabaseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032B3C2259A0E7300DB14CC /* DatabaseEntity.swift */; };
+		C0EE148D26879D9000354C8E /* BubbleColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E04B3325C02FE4002856FD /* BubbleColor.swift */; };
+		C0EE149026879DA200354C8E /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032B3BD259A092700DB14CC /* DatabaseManager.swift */; };
+		C0EE149326879E4C00354C8E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C0C4E6CE2598E4DE00085C77 /* Model.xcdatamodeld */; };
+		C0EE149626879E5D00354C8E /* ColorTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E04B3025C025D5002856FD /* ColorTools.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C074BD6D26878EFF0031A76F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C0C4E6BA2598E4DE00085C77 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C074BD6026878EFE0031A76F;
+			remoteInfo = BubblePopWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C074BD7026878EFF0031A76F /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C074BD6F26878EFF0031A76F /* BubblePopWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C0080D672598E80500116BBD /* Bubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bubble.swift; sourceTree = "<group>"; };
@@ -46,6 +84,14 @@
 		C030A6B225A1ED5400526A49 /* CalculationTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationTools.swift; sourceTree = "<group>"; };
 		C032B3BD259A092700DB14CC /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		C032B3C2259A0E7300DB14CC /* DatabaseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseEntity.swift; sourceTree = "<group>"; };
+		C074BD6126878EFE0031A76F /* BubblePopWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BubblePopWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C074BD6326878EFE0031A76F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		C074BD6526878EFE0031A76F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		C074BD6826878EFE0031A76F /* BubblePopWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblePopWidget.swift; sourceTree = "<group>"; };
+		C074BD6A26878EFF0031A76F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C074BD6C26878EFF0031A76F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C074BD782687922C0031A76F /* BubbleTimeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleTimeline.swift; sourceTree = "<group>"; };
+		C074BD7E2687927E0031A76F /* BubblePopWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblePopWidgetEntryView.swift; sourceTree = "<group>"; };
 		C0C4E6C22598E4DE00085C77 /* BubblePop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BubblePop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0C4E6C52598E4DE00085C77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0C4E6C72598E4DE00085C77 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,9 +108,19 @@
 		C0ED2ABE25BEE2BC0007D252 /* ColorViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ColorViewController.storyboard; sourceTree = "<group>"; };
 		C0ED2AC125BEE2DA0007D252 /* ColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
 		C0ED2AC425BEF5F40007D252 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
+		C0EE147D2687960000354C8E /* BubbleEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleEntry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C074BD5E26878EFE0031A76F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C074BD6626878EFE0031A76F /* SwiftUI.framework in Frameworks */,
+				C074BD6426878EFE0031A76F /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C0C4E6BF2598E4DE00085C77 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -117,10 +173,50 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
+		C074BD6226878EFE0031A76F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C074BD6326878EFE0031A76F /* WidgetKit.framework */,
+				C074BD6526878EFE0031A76F /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C074BD6726878EFE0031A76F /* BubblePopWidget */ = {
+			isa = PBXGroup;
+			children = (
+				C074BD77268791F60031A76F /* Resources */,
+				C074BD76268791E60031A76F /* Source */,
+				C074BD6C26878EFF0031A76F /* Info.plist */,
+			);
+			path = BubblePopWidget;
+			sourceTree = "<group>";
+		};
+		C074BD76268791E60031A76F /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				C074BD6826878EFE0031A76F /* BubblePopWidget.swift */,
+				C074BD782687922C0031A76F /* BubbleTimeline.swift */,
+				C074BD7E2687927E0031A76F /* BubblePopWidgetEntryView.swift */,
+				C0EE147D2687960000354C8E /* BubbleEntry.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		C074BD77268791F60031A76F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C074BD6A26878EFF0031A76F /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		C0C4E6B92598E4DE00085C77 = {
 			isa = PBXGroup;
 			children = (
 				C0C4E6C42598E4DE00085C77 /* BubblePop */,
+				C074BD6726878EFE0031A76F /* BubblePopWidget */,
+				C074BD6226878EFE0031A76F /* Frameworks */,
 				C0C4E6C32598E4DE00085C77 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -129,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				C0C4E6C22598E4DE00085C77 /* BubblePop.app */,
+				C074BD6126878EFE0031A76F /* BubblePopWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -215,6 +312,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C074BD6026878EFE0031A76F /* BubblePopWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C074BD7326878EFF0031A76F /* Build configuration list for PBXNativeTarget "BubblePopWidgetExtension" */;
+			buildPhases = (
+				C074BD5D26878EFE0031A76F /* Sources */,
+				C074BD5E26878EFE0031A76F /* Frameworks */,
+				C074BD5F26878EFE0031A76F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BubblePopWidgetExtension;
+			productName = BubblePopWidgetExtension;
+			productReference = C074BD6126878EFE0031A76F /* BubblePopWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		C0C4E6C12598E4DE00085C77 /* BubblePop */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C0C4E6D92598E4DF00085C77 /* Build configuration list for PBXNativeTarget "BubblePop" */;
@@ -222,10 +336,12 @@
 				C0C4E6BE2598E4DE00085C77 /* Sources */,
 				C0C4E6BF2598E4DE00085C77 /* Frameworks */,
 				C0C4E6C02598E4DE00085C77 /* Resources */,
+				C074BD7026878EFF0031A76F /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C074BD6E26878EFF0031A76F /* PBXTargetDependency */,
 			);
 			name = BubblePop;
 			productName = BubblePop;
@@ -238,9 +354,12 @@
 		C0C4E6BA2598E4DE00085C77 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1230;
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
+					C074BD6026878EFE0031A76F = {
+						CreatedOnToolsVersion = 12.4;
+					};
 					C0C4E6C12598E4DE00085C77 = {
 						CreatedOnToolsVersion = 12.3;
 					};
@@ -260,11 +379,20 @@
 			projectRoot = "";
 			targets = (
 				C0C4E6C12598E4DE00085C77 /* BubblePop */,
+				C074BD6026878EFE0031A76F /* BubblePopWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C074BD5F26878EFE0031A76F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C074BD6B26878EFF0031A76F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C0C4E6C02598E4DE00085C77 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -279,6 +407,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C074BD5D26878EFE0031A76F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0EE149026879DA200354C8E /* DatabaseManager.swift in Sources */,
+				C074BD792687922C0031A76F /* BubbleTimeline.swift in Sources */,
+				C0EE148A2687989F00354C8E /* DatabaseEntity.swift in Sources */,
+				C0EE14832687963900354C8E /* Bubble.swift in Sources */,
+				C0EE148D26879D9000354C8E /* BubbleColor.swift in Sources */,
+				C0EE149326879E4C00354C8E /* Model.xcdatamodeld in Sources */,
+				C074BD7F2687927E0031A76F /* BubblePopWidgetEntryView.swift in Sources */,
+				C074BD6926878EFE0031A76F /* BubblePopWidget.swift in Sources */,
+				C0EE147E2687960000354C8E /* BubbleEntry.swift in Sources */,
+				C0EE149626879E5D00354C8E /* ColorTools.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C0C4E6BE2598E4DE00085C77 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -309,6 +454,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		C074BD6E26878EFF0031A76F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C074BD6026878EFE0031A76F /* BubblePopWidgetExtension */;
+			targetProxy = C074BD6D26878EFF0031A76F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		C0C4E6CB2598E4DE00085C77 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -329,6 +482,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C074BD7126878EFF0031A76F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SJV56SAX8G;
+				INFOPLIST_FILE = BubblePopWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.petra.PetrasWorkspace.BubblePop.BubblePopWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C074BD7226878EFF0031A76F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SJV56SAX8G;
+				INFOPLIST_FILE = BubblePopWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.petra.PetrasWorkspace.BubblePop.BubblePopWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		C0C4E6D72598E4DF00085C77 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -448,6 +645,7 @@
 		C0C4E6DA2598E4DF00085C77 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -467,6 +665,7 @@
 		C0C4E6DB2598E4DF00085C77 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -486,6 +685,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C074BD7326878EFF0031A76F /* Build configuration list for PBXNativeTarget "BubblePopWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C074BD7126878EFF0031A76F /* Debug */,
+				C074BD7226878EFF0031A76F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C0C4E6BD2598E4DE00085C77 /* Build configuration list for PBXProject "BubblePop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
